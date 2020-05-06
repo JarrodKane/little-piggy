@@ -1,3 +1,37 @@
+# Little Piggy
+
+Little Piggy is a game based off the Pig Dice Game.
+The objective of the game is to beat your partner at reaching the high score, hitting a 1 will remove your score for that round, and transfer over the rolling to the other person. Hitting stay, will take your current round points, and add them to your total, and transfer the control over to the other person.
+
+## Made with
+
+This game has been made with:
+
+- React with hooks
+- styled components for styling
+- Framer Motion for animation
+- Netlify for hosting
+- Jest for testing
+
+## TO-DO
+
+####### Logic
+
+- [ ] Basic game logic running
+- [ ] Allowing for a player to input the winning score limit
+      ####### Styling
+- [ ] Styling of game with styled components
+      ####### Animation
+- [ ] Animation of dice using Framer Motion
+- [ ] Animation of button click
+- [ ] Winning animation
+      ####### Hosting
+- [ ] Hosted on netlify
+      ####### Testing
+- [ ] Jest testing
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
