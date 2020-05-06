@@ -29,18 +29,15 @@ const ContentDisp = styled.div`
 
 const Side = styled.div`
   display: flex;
-
   flex-direction: column;
   text-align: center;
   margin: auto;
 `;
 
-/*
-const DiceImage = styled.img`
-  position: absolute;
-  top: 50%;
+const DiceImage = styled.div`
+  height: 20vw;
+  margin-top: 50%;
 `;
-*/
 
 // This function sets up the basic game
 function Board() {
@@ -110,8 +107,11 @@ function Board() {
         <button onClick={btnRoll}> Roll</button>
         <button onClick={btnHold}> Hold</button>
         <h2>{round}</h2>
-        <Die num={dice} gamePlaying={game} />
+        <DiceImage>
+          <Die num={dice} gamePlaying={game} />
+        </DiceImage>
       </ContentDisp>
+
       <Side>
         <h2>Player 2</h2>
         <h1>{score[1]}</h1>
@@ -121,3 +121,5 @@ function Board() {
 }
 
 export default Board;
+
+//<Die num={dice} gamePlaying={game} />
