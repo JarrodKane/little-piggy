@@ -10,16 +10,18 @@ function importAllDice(r) {
 const die = importAllDice(
   require.context("./assets", false, /\.(png|jpe?g|svg)$/)
 );
-console.log(die);
+
 // Sets the file path for the dice images, and runs the function
 
 // Die takes in a die number that is generated and then places that into the src, to grab out the correct die to display
 const Die = ({ num, gamePlaying }) => {
-  console.log("the number is " + num);
-  return (
+  // If game is not in play, we don't display the die
+  return gamePlaying.playing ? (
     <div>
       <img src={die[num - 1]} className="dice" alt="dice" />;
     </div>
+  ) : (
+    <div></div>
   );
 };
 
