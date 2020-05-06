@@ -14,8 +14,8 @@ const die = importAllDice(
 
 // -- STYLYING for the dice
 const Image = styled.img`
-  max-width: 25%;
-  border-radius: 25px;
+  max-width: 30vh;
+  border-radius: 10%;
 `;
 
 // Die takes in a die number that is generated and then places that into the src, to grab out the correct die to display

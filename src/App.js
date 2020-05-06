@@ -1,15 +1,35 @@
 import React from "react";
-
+import styled from "styled-components";
 import Board from "./Board";
-import "./App.css";
+
+//Styled CSS for background
+const BackgroundLook = styled.div`
+  height: 100vh;
+  text-align: center;
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  display: flex;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">LITTLE PIGGY</header>
+    <BackgroundLook className="App">
       <Board />
-    </div>
+    </BackgroundLook>
   );
 }
 
 export default App;
+
+//Old header css
+/*
+const HeaderBasic = styled.div`
+  background-color: #282c34;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+`;
+*/

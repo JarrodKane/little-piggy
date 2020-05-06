@@ -1,5 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Die from "./Die";
+import styled from "styled-components";
+
+const GameBoard = styled.div`
+  width: 80vw;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  background: radial-gradient(
+    circle,
+    rgba(224, 235, 241, 1) 0%,
+    rgba(170, 255, 218, 0.24990665211397056) 82%
+  );
+  border-radius: 25px;
+  padding: 5rm;
+`;
 
 // This function sets up the basic game
 function Board() {
@@ -58,16 +73,15 @@ function Board() {
   };
 
   return (
-    <div>
+    <GameBoard>
       <h1>Little Piggy</h1>
-
       <button onClick={btnRoll}> Roll</button>
       <button onClick={btnHold}> Hold</button>
       <h2>{round}</h2>
       <h2>Player 1: {score[0]}</h2>
       <h2>Player 2: {score[1]}</h2>
       <Die num={dice} gamePlaying={game} />
-    </div>
+    </GameBoard>
   );
 }
 
