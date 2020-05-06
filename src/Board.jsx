@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Die from "./Die";
 import styled from "styled-components";
-
+// display: flex;
 const GameBoard = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 80vw;
   height: 80%;
   text-align: center;
@@ -17,14 +19,28 @@ const GameBoard = styled.div`
   padding: 5rm;
 `;
 
-const Sides = styled.div`
-  background: rgba(41, 159, 238, 0.1);
-  width: 50%;
-  z-index: 2;
+const ContentDisp = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
 `;
-const MainContent = styled.div`
-  z-index: 1;
+
+const Side = styled.div`
+  display: flex;
+
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
 `;
+
+/*
+const DiceImage = styled.img`
+  position: absolute;
+  top: 50%;
+`;
+*/
 
 // This function sets up the basic game
 function Board() {
@@ -85,20 +101,21 @@ function Board() {
 
   return (
     <GameBoard>
-      <MainContent>
+      <Side>
+        <h2>Player 1</h2>
+        <h1>{score[0]}</h1>
+      </Side>
+      <ContentDisp>
         <h1>Little Piggy</h1>
         <button onClick={btnRoll}> Roll</button>
         <button onClick={btnHold}> Hold</button>
-      </MainContent>
-
-      <Die num={dice} gamePlaying={game} />
-      <h2>{round}</h2>
-      <Sides>
-        <h2>Player 1: {score[0]}</h2>
-      </Sides>
-      <Sides>
-        <h2>Player 2: {score[1]}</h2>
-      </Sides>
+        <h2>{round}</h2>
+        <Die num={dice} gamePlaying={game} />
+      </ContentDisp>
+      <Side>
+        <h2>Player 2</h2>
+        <h1>{score[1]}</h1>
+      </Side>
     </GameBoard>
   );
 }
