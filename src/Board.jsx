@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Die from "./Die";
 
-//init function to set the game back to its initial state
-// TODO: allow it to take in a variable to set the number you wish to hit to win the game
-
 // This function sets up the basic game
 function Board() {
   //Using hooks to manage the state
