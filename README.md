@@ -19,15 +19,23 @@ This game has been made with:
 
 - [ ] Basic game logic running
 - [ ] Allowing for a player to input the winning score limit
-  ###### Styling
+
+###### Styling
+
 - [ ] Styling of game with styled components
-  ###### Animation
+
+###### Animation
+
 - [ ] Animation of dice using Framer Motion
 - [ ] Animation of button click
 - [ ] Winning animation
-  ###### Hosting
+
+###### Hosting
+
 - [ ] Hosted on netlify
-  ###### Testing
+
+###### Testing
+
 - [ ] Jest testing
 
 ---
