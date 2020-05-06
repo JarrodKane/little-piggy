@@ -3,17 +3,27 @@ import Die from "./Die";
 import styled from "styled-components";
 
 const GameBoard = styled.div`
+  display: flex;
   width: 80vw;
   height: 80%;
   text-align: center;
   margin: auto;
   background: radial-gradient(
     circle,
-    rgba(224, 235, 241, 1) 0%,
-    rgba(170, 255, 218, 0.24990665211397056) 82%
+    rgba(224, 235, 241, 0.8) 0%,
+    rgba(170, 255, 218, 0.2) 60%
   );
   border-radius: 25px;
   padding: 5rm;
+`;
+
+const Sides = styled.div`
+  background: rgba(41, 159, 238, 0.1);
+  width: 50%;
+  z-index: 2;
+`;
+const MainContent = styled.div`
+  z-index: 1;
 `;
 
 // This function sets up the basic game
@@ -26,6 +36,7 @@ function Board() {
   const [dice, setDice] = useState(1);
   const [game, setGame] = useState(false);
   const [win, setWin] = useState(false);
+
   // The game is only ever set to False for playing when the game starts, after that dice are shown
 
   // This is the button that rolls a dice, it selects a number between 1-6
@@ -74,13 +85,20 @@ function Board() {
 
   return (
     <GameBoard>
-      <h1>Little Piggy</h1>
-      <button onClick={btnRoll}> Roll</button>
-      <button onClick={btnHold}> Hold</button>
-      <h2>{round}</h2>
-      <h2>Player 1: {score[0]}</h2>
-      <h2>Player 2: {score[1]}</h2>
+      <MainContent>
+        <h1>Little Piggy</h1>
+        <button onClick={btnRoll}> Roll</button>
+        <button onClick={btnHold}> Hold</button>
+      </MainContent>
+
       <Die num={dice} gamePlaying={game} />
+      <h2>{round}</h2>
+      <Sides>
+        <h2>Player 1: {score[0]}</h2>
+      </Sides>
+      <Sides>
+        <h2>Player 2: {score[1]}</h2>
+      </Sides>
     </GameBoard>
   );
 }
