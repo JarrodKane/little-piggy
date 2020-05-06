@@ -21,12 +21,10 @@ const Image = styled.img`
 // Die takes in a die number that is generated and then places that into the src, to grab out the correct die to display
 const Die = ({ num, gamePlaying }) => {
   // If game is not in play, we don't display the die
-  return gamePlaying.playing ? (
+  return (
     <div>
       <Image src={die[num - 1]} className="dice" alt="dice" />
     </div>
-  ) : (
-    <div></div>
   );
 };
 

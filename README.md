@@ -2,6 +2,7 @@
 
 Little Piggy is a game based off the Pig Dice Game.
 The objective of the game is to beat your partner at reaching the high score, hitting a 1 will remove your score for that round, and transfer over the rolling to the other person. Hitting stay, will take your current round points, and add them to your total, and transfer the control over to the other person.
+[Live site](https://angry-williams-202a5d.netlify.app/)
 
 ## Made with
 
@@ -32,7 +33,7 @@ This game has been made with:
 
 ###### Hosting
 
-- [ ] Hosted on netlify
+- [x] Hosted on netlify
 
 ###### Testing
 
