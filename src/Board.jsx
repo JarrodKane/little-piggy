@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Die from "./Die";
 
 // This function sets up the basic game
@@ -6,16 +6,18 @@ function Board() {
   //Using hooks to manage the state
   const [active, setActive] = useState(1);
   const [round, setRound] = useState(0);
+  const [scoreWin, setScoreWin] = useState(10);
   const [score, setScore] = useState([0, 0]);
   const [dice, setDice] = useState(1);
-  const [game, setGame] = useState({ playing: false, won: false });
+  const [game, setGame] = useState(false);
+  const [win, setWin] = useState(false);
   // The game is only ever set to False for playing when the game starts, after that dice are shown
 
   // This is the button that rolls a dice, it selects a number between 1-6
   // That's then passed into the dice image, and added to the state
   // TODO - Pass this btnRoll to the Button component
   const btnRoll = () => {
-    if (game.playing === false) {
+    if (game === false) {
       setGame({ playing: true });
     }
     const diceNum = Math.round(Math.random() * 5 + 1);
@@ -23,10 +25,21 @@ function Board() {
     setRound(round + diceNum);
   };
 
+  // Checks if either player has hit the score limit yet
+  // Runs each time the score state is updated
+  useEffect(() => {
+    if (score[0] >= scoreWin) {
+      setWin(true);
+      console.log("Playre 1 wins");
+    } else if (score[1] >= scoreWin) {
+      setWin(true);
+      console.log("Playre 2 wins");
+    }
+  }, [score, scoreWin]);
+
   const btnHold = () => {
     if (active === 1) {
       setScore([score[0] + round, score[1]]);
-      //setScore(); // Adds in the round score to that players total
       setActive(2); // Sets the active to the other player
     } else if (active === 2) {
       setScore([score[0], score[1] + round]);
