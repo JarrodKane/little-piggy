@@ -69,6 +69,9 @@ function Board() {
     }
   };
 
+  //TODO - have a pop up animation that says something dumb like "WOWZA HIT A 1"
+  // When a 1 is hit
+
   // Checks if either player has hit the score limit yet
   // Runs each time the score state is updated
   useEffect(() => {

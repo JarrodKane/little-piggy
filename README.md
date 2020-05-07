@@ -18,7 +18,7 @@ This game has been made with:
 
 ###### Logic
 
-- [ ] Basic game logic running
+- [x] Basic game logic running
 - [ ] Allowing for a player to input the winning score limit
 
 ###### Styling
@@ -29,6 +29,7 @@ This game has been made with:
 
 - [ ] Animation of dice using Framer Motion
 - [ ] Animation of button click
+- [ ] Animation of hitting a 1
 - [ ] Winning animation
 
 ###### Hosting
