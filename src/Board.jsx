@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Die from "./Die";
 import styled from "styled-components";
-import RollBtn from "./RollBtn";
 import Player from "./Player";
+import Btn from "./Btn";
 
 const ContentDisp = styled.div`
   display: flex;
@@ -80,8 +80,9 @@ function Board() {
       setGame(true);
     }
   }, [score, scoreWin]);
-  // TODO - Pause the ability to cick roll or hold without clicking new game if the game is won
 
+  //Hold btn will take the current round score and add it to the players total
+  // It'll then switch the player that is active
   const btnHold = () => {
     if (active === 1) {
       setScore([score[0] + round, score[1]]);
@@ -93,7 +94,7 @@ function Board() {
     setRound(0);
   };
 
-  // used to resrt the game back to 0
+  // used to resrt the game
   const init = () => {
     setActive(1);
     setRound(0);
@@ -108,11 +109,10 @@ function Board() {
       <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
       <ContentDisp>
         <h1>Little Piggy</h1>
-        <RollBtn rollOnClick={btnRoll} isGameWon={game} />
-        <button onClick={btnHold}>Hold</button>
-        {/*  TODO -Change out butonHold to a component so that it can be disabled and styled */}
+        <Btn btnAction={btnRoll} isGameWon={game} name={"Roll"} />
+        <Btn btnAction={btnHold} isGameWon={game} name={"Hold"} />
         <h2>{round}</h2>
-        <button onClick={init}>New Game</button>
+        <Btn btnAction={init} name={"New Game"} />
         <DiceImage>
           <Die num={dice} gamePlaying={game} />
         </DiceImage>
