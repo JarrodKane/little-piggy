@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Die from "./Die";
 import styled from "styled-components";
 import RollBtn from "./RollBtn";
+import Player from "./Player";
 
 const ContentDisp = styled.div`
   display: flex;
@@ -10,13 +11,7 @@ const ContentDisp = styled.div`
   text-align: center;
   margin: auto;
 `;
-
-const Side = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: auto;
-`;
+// margin: auto;
 
 const DiceImage = styled.div`
   height: 20vw;
@@ -55,22 +50,16 @@ function Board() {
     height: 80%;
     text-align: center;
     margin: auto;
-    border-radius: 25px;
     padding: 5rm;
     border-radius: 25px;
   `;
 
-  // The game is only ever set to False for playing when the game starts, after that dice are shown
-
   // This is the button that rolls a dice, it selects a number between 1-6
   // That's then passed into the dice image, and added to the state
-  // TODO - Pass this btnRoll to the Button component
   const btnRoll = () => {
     const diceNum = Math.round(Math.random() * 5 + 1);
     setDice(diceNum);
-    console.log(diceNum);
     if (diceNum === 1) {
-      console.log("Hit a 1 now swapping player");
       // If a 1 is rolled it sets the active player to the other player
       //It also sets the round back to 0
       active === 1 ? setActive(2) : setActive(1);
@@ -85,11 +74,9 @@ function Board() {
   useEffect(() => {
     if (score[0] >= scoreWin) {
       setWin([1, 0]);
-      console.log("Playre 1 wins");
       setGame(true);
     } else if (score[1] >= scoreWin) {
       setWin([0, 1]);
-      console.log("Playre 2 wins");
       setGame(true);
     }
   }, [score, scoreWin]);
@@ -118,15 +105,12 @@ function Board() {
 
   return (
     <GameBoard>
-      <Side>
-        {win[0] === 1 ? <h1>Winner</h1> : ""}
-        <h2>Player 1</h2>
-        <h1>{score[0]}</h1>
-      </Side>
+      <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
       <ContentDisp>
         <h1>Little Piggy</h1>
         <RollBtn rollOnClick={btnRoll} isGameWon={game} />
         <button onClick={btnHold}>Hold</button>
+        {/*  TODO -Change out butonHold to a component so that it can be disabled and styled */}
         <h2>{round}</h2>
         <button onClick={init}>New Game</button>
         <DiceImage>
@@ -134,11 +118,7 @@ function Board() {
         </DiceImage>
       </ContentDisp>
 
-      <Side>
-        {win[1] === 1 ? <h1>Winner</h1> : ""}
-        <h2>Player 2</h2>
-        <h1>{score[1]}</h1>
-      </Side>
+      <Player player={2} hasWon={win[1]} score={score[1]} active={active} />
     </GameBoard>
   );
 }
