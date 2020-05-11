@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Die from "./Die";
 import styled from "styled-components";
 import Player from "./Player";
 import Btn from "./Btn";
+import FinshModal from "./FinishModal";
 
 const ContentDisp = styled.div`
   display: flex;
@@ -11,15 +13,9 @@ const ContentDisp = styled.div`
   text-align: center;
   margin: auto;
 `;
-// margin: auto;
-
-const DiceImage = styled.div`
-  height: 20vw;
-  margin-top: 50%;
-`;
 
 // This function sets up the basic game
-function Board() {
+function Board(props) {
   //Using hooks to manage the state
   const [active, setActive] = useState(1);
   const [round, setRound] = useState(0);
@@ -108,21 +104,22 @@ function Board() {
   };
 
   return (
-    <GameBoard>
-      <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
-      <ContentDisp>
-        <h1>Little Piggy</h1>
-        <Btn btnAction={btnRoll} isGameWon={game} name={"Roll"} />
-        <Btn btnAction={btnHold} isGameWon={game} name={"Hold"} />
-        <h2>{round}</h2>
-        <Btn btnAction={init} name={"New Game"} />
-        <DiceImage>
+    <AnimatePresence>
+      <FinshModal win={game}></FinshModal>
+      <GameBoard>
+        <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
+        <ContentDisp>
+          <h1>Little Piggy</h1>
+          <Btn btnAction={btnRoll} isGameWon={game} name={"Roll"} />
+          <Btn btnAction={btnHold} isGameWon={game} name={"Hold"} />
+          <h2>{round}</h2>
+          <Btn btnAction={init} name={"New Game"} />
           <Die num={dice} gamePlaying={game} />
-        </DiceImage>
-      </ContentDisp>
+        </ContentDisp>
 
-      <Player player={2} hasWon={win[1]} score={score[1]} active={active} />
-    </GameBoard>
+        <Player player={2} hasWon={win[1]} score={score[1]} active={active} />
+      </GameBoard>
+    </AnimatePresence>
   );
 }
 

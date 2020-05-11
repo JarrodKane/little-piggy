@@ -1,15 +1,27 @@
 import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+
+const Button = styled(motion.button)`
+  height: 3em;
+  margin: 0.5em;
+  background-color: white;
+  border: 2px solid;
+  font-weight: bold;
+`;
 
 const RollBtn = (props) => {
   const { btnAction, isGameWon, name } = props;
 
-  //TODO - Animate hover on button
-  //TODO - Animate clicking button
-  // TODO - Put pause between how quickly someone can press the button
   return (
-    <button onClick={btnAction} disabled={isGameWon}>
+    <Button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      onClick={btnAction}
+      disabled={isGameWon}
+    >
       {name}
-    </button>
+    </Button>
   );
 };
 

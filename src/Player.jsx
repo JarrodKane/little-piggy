@@ -18,8 +18,6 @@ const PlayerInactive = styled.div`
   border-radius: 25px;
 `;
 
-//TODO - Make hasWon style
-
 const Player = (props) => {
   const { player, hasWon, score, active } = props;
 
