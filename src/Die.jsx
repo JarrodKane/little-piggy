@@ -9,6 +9,7 @@ function importAllDice(r) {
 // The array that is returned is 0 based while the images are from 1 - 6
 // That's why there's a -1 to the image src
 // Sets the file path for the dice images, and runs the function
+//TODO : Load all dice in as soon as application start to prevent animation issue
 const die = importAllDice(
   require.context("./assets", false, /\.(png|jpe?g|svg)$/)
 );
