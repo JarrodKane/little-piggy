@@ -13,7 +13,7 @@ const BackgroundLook = styled.div`
 
 function App() {
   return (
-    <BackgroundLook className="App">
+    <BackgroundLook>
       <Board />
     </BackgroundLook>
   );

@@ -4,15 +4,17 @@ import styled from "styled-components";
 
 //TODO: Make modal centerd
 const Finish = styled(motion.div)`
-  position: fixed;
-  top: 15%;
-  left: 35%;
-  transform: "translate3d(-50%, 0, 0)";
-  background-color: black;
+  width: 30%;
+  height: 20%;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  margin-left: -150px;
+  margin-top: -150px;
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 15px;
-  padding: 100px;
   color: white;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4, 0.1);
 `;
 //TODO: Have displayed over the entire window so they can only click the modal
 // TODO: Add in the start new game button
@@ -35,3 +37,20 @@ const FinishModal = ({ win, startGame }) => {
 };
 
 export default FinishModal;
+
+/*
+display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: "translate3d(-50%, 0, 0)";
+  background-color: black;
+  border-radius: 15px;
+  padding: 100px;
+  color: white;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+  */

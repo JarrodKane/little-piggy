@@ -109,7 +109,7 @@ function Board(props) {
 
   return (
     <AnimatePresence>
-      <FinshModal win={game}></FinshModal>
+      <FinshModal win={game} />
       <GameBoard>
         <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
         <ContentDisp>
@@ -128,3 +128,4 @@ function Board(props) {
 }
 
 export default Board;
+//
