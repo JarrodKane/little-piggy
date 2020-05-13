@@ -21,7 +21,7 @@ function Board(props) {
   const [round, setRound] = useState(0);
   const [scoreWin, setScoreWin] = useState(100);
   const [score, setScore] = useState([0, 0]);
-  const [dice, setDice] = useState(1);
+  const [dice, setDice] = useState(2);
   const [game, setGame] = useState(false);
   const [win, setWin] = useState([0, 0]);
 
@@ -53,12 +53,16 @@ function Board(props) {
   // This is the button that rolls a dice, it selects a number between 1-6
   // That's then passed into the dice image, and added to the state
   const btnRoll = () => {
-    const diceNum = Math.round(Math.random() * 5 + 1);
+    const diceNum = Math.round(Math.random() * 2 + 1);
     setDice(diceNum);
     if (diceNum === 1) {
       // If a 1 is rolled it sets the active player to the other player
       //It also sets the round back to 0
-      active === 1 ? setActive(2) : setActive(1);
+      if (active === 1) {
+        setActive(2);
+      } else {
+        setActive(1);
+      }
       setRound(0);
     } else {
       setRound(round + diceNum);
@@ -98,7 +102,7 @@ function Board(props) {
     setActive(1);
     setRound(0);
     setScore([0, 0]);
-    setDice(1);
+    setDice(3);
     setGame(false);
     setWin([0, 0]);
   };

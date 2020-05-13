@@ -21,6 +21,7 @@ const Image = styled(motion.img)`
   height: 20vw;
   margin-top: 50%;
 `;
+
 //
 // This function returns either 180 or 360, to be used in the dice animation
 // It's random to make it look more natural and add variation to the dice throw look
