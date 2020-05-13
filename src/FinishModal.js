@@ -37,20 +37,3 @@ const FinishModal = ({ win, startGame }) => {
 };
 
 export default FinishModal;
-
-/*
-display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  text-align: center;
-  margin: auto;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: "translate3d(-50%, 0, 0)";
-  background-color: black;
-  border-radius: 15px;
-  padding: 100px;
-  color: white;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
-  */

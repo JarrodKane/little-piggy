@@ -109,7 +109,7 @@ function Board(props) {
 
   return (
     <AnimatePresence>
-      <FinshModal win={game} />
+      {/*    <FinshModal win={game} /> */}
       <GameBoard>
         <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
         <ContentDisp>
@@ -118,7 +118,7 @@ function Board(props) {
           <Btn btnAction={btnHold} isGameWon={game} name={"Hold"} />
           <h2>{round}</h2>
           <Btn btnAction={init} name={"New Game"} />
-          <Die num={dice} gamePlaying={game} />
+          <Die num={dice} gamePlaying={game} btnAction={btnRoll} />
         </ContentDisp>
 
         <Player player={2} hasWon={win[1]} score={score[1]} active={active} />
@@ -128,4 +128,3 @@ function Board(props) {
 }
 
 export default Board;
-//

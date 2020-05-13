@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Using this function to import all of the dice images at once
 function importAllDice(r) {
@@ -15,11 +15,26 @@ const die = importAllDice(
 );
 
 // -- STYLYING for the dice
+
 const Image = styled(motion.img)`
   max-width: 30vh;
   border-radius: 10%;
   height: 20vw;
-  margin-top: 50%;
+  pointer-events: none;
+`;
+
+const WrapperImage = styled(motion.div)`
+  margin: 20px;
+  margin-top: 40px;
+  border-radius: 15px;
+  color: white;
+  h3 {
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  img {
+    width: 100%;
+  }
 `;
 
 //
@@ -31,18 +46,26 @@ const getAngle = () => {
 };
 
 // Die takes in a die number that is generated and then places that into the src, to grab out the correct die to display
-const Die = ({ num, gamePlaying }) => {
+// TODO - When letting go of the drag on the die, the animation should be smooth and not snap back when the function is run
+const Die = ({ num, gamePlaying, btnAction }) => {
   const angle1 = getAngle(),
     angle2 = getAngle();
 
   return (
-    <Image
-      animate={{ rotate: angle1, rotateX: angle2 }}
-      transition={{ duration: 0.5 }}
+    <WrapperImage
+      drag
+      dragConstraints={{ top: 0, left: 0, bottom: 0, right: 0 }}
+      animate={{
+        rotate: angle1,
+        rotateX: angle2,
+      }}
       src={die[num - 1]}
+      transition={{ duration: 0.5 }}
       className="dice"
       alt="dice"
-    />
+    >
+      <Image src={die[num - 1]} />
+    </WrapperImage>
   );
 };
 
