@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Die> 1`] = `
+<div
+  alt="dice"
+  class="sc-AxirZ emLwGp dice"
+  draggable="false"
+  style="user-select: none;"
+>
+  <img
+    class="sc-AxjAm khFWVX"
+  />
+</div>
+`;

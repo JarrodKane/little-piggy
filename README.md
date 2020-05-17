@@ -41,6 +41,9 @@ This game has been made with:
 ###### Testing
 
 - [ ] Jest testing
+      -- [ ] Unit
+      -- [ ] Intergration
+      -- [x] Snapshot
 
 ---
 

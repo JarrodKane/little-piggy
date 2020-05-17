@@ -1,18 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import React from 'react';
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
+//Importing all the die images
+import One from './assets/1.svg';
+import Two from './assets/2.svg';
+import Three from './assets/3.svg';
+import Four from './assets/4.svg';
+import Five from './assets/5.svg';
+import Six from './assets/6.svg';
 
-// Using this function to import all of the dice images at once
-function importAllDice(r) {
-  return r.keys().map(r);
-}
-// The array that is returned is 0 based while the images are from 1 - 6
-// That's why there's a -1 to the image src
-// Sets the file path for the dice images, and runs the function
-//TODO : Load all dice in as soon as application start to prevent animation issue
-const die = importAllDice(
-  require.context("./assets", false, /\.(png|jpe?g|svg)$/)
-);
+const die = {
+  1: One,
+  2: Two,
+  3: Three,
+  4: Four,
+  5: Five,
+  6: Six,
+};
 
 // -- STYLYING for the dice
 
@@ -59,12 +63,11 @@ const Die = ({ num, gamePlaying, btnAction }) => {
         rotate: angle1,
         rotateX: angle2,
       }}
-      src={die[num - 1]}
       transition={{ duration: 0.5 }}
-      className="dice"
-      alt="dice"
+      className='dice'
+      alt='dice'
     >
-      <Image src={die[num - 1]} />
+      <Image src={die[num]} />
     </WrapperImage>
   );
 };

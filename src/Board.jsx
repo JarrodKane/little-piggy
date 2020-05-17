@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Die from "./Die";
-import styled from "styled-components";
-import Player from "./Player";
-import Btn from "./Btn";
-import FinshModal from "./FinishModal";
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Die from './Die';
+import styled from 'styled-components';
+import Player from './Player';
+import Btn from './Btn';
+import FinshModal from './FinishModal';
 
 const ContentDisp = styled.div`
   display: flex;
@@ -53,7 +53,7 @@ function Board(props) {
   // This is the button that rolls a dice, it selects a number between 1-6
   // That's then passed into the dice image, and added to the state
   const btnRoll = () => {
-    const diceNum = Math.round(Math.random() * 2 + 1);
+    const diceNum = Math.round(Math.random() * 5 + 1);
     setDice(diceNum);
     if (diceNum === 1) {
       // If a 1 is rolled it sets the active player to the other player
@@ -114,10 +114,10 @@ function Board(props) {
         <Player player={1} hasWon={win[0]} score={score[0]} active={active} />
         <ContentDisp>
           <h1>Little Piggy</h1>
-          <Btn btnAction={btnRoll} isGameWon={game} name={"Roll"} />
-          <Btn btnAction={btnHold} isGameWon={game} name={"Hold"} />
+          <Btn btnAction={btnRoll} isGameWon={game} name={'Roll'} />
+          <Btn btnAction={btnHold} isGameWon={game} name={'Hold'} />
           <h2>{round}</h2>
-          <Btn btnAction={init} name={"New Game"} />
+          <Btn btnAction={init} name={'New Game'} />
           <Die num={dice} gamePlaying={game} btnAction={btnRoll} />
         </ContentDisp>
 

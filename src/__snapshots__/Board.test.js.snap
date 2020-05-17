@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Board> 1`] = `
+<div
+  class="sc-Axmtr kEyglW"
+>
+  <div
+    class="sc-AxiKw iIqsaU"
+  >
+    <h2>
+      Player: 
+      1
+    </h2>
+    <h1>
+      0
+    </h1>
+  </div>
+  <div
+    class="sc-AxheI bLnSPZ"
+  >
+    <h1>
+      Little Piggy
+    </h1>
+    <button
+      class="sc-AxhUy cjMjeC"
+    >
+      Roll
+    </button>
+    <button
+      class="sc-AxhUy cjMjeC"
+    >
+      Hold
+    </button>
+    <h2>
+      0
+    </h2>
+    <button
+      class="sc-AxhUy cjMjeC"
+    >
+      New Game
+    </button>
+    <div
+      alt="dice"
+      class="sc-AxirZ emLwGp dice"
+      draggable="false"
+      style="user-select: none;"
+    >
+      <img
+        class="sc-AxjAm khFWVX"
+        src="2.svg"
+      />
+    </div>
+  </div>
+  <div
+    class="sc-AxhCb iWTtKr"
+  >
+    <h2>
+      Player: 
+      2
+    </h2>
+    <h1>
+      0
+    </h1>
+  </div>
+</div>
+`;
